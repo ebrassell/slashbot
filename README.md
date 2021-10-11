@@ -47,3 +47,12 @@ def handler(event, context):
     return slashbot.main(event, context)
 
 ```
+
+
+## Todo
+
+* Add tests
+* Add CI/CD
+* Validation on routes to detect conflicting/duplicate entries
+* Slack APP Manifest
+
