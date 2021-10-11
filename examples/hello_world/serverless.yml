@@ -1,0 +1,26 @@
+service: slashbot
+
+provider:
+  name: aws
+  runtime: python3.6
+  memorySize: 3008
+  environment:
+    ENV: myenv
+    SLACK_SIGNING_SECRET: '<YOUR APPS SIGNING SECRET HERE>'   
+  iamRoleStatements: 
+    -  Effect: "Allow"
+       Action:
+        - "lambda:InvokeFunction"
+       Resource: "*"
+
+functions:
+  slashbot-handler:
+    name: slashbot-handler
+    handler: hello_world.handler
+    events:
+      - http:
+          path: slashbot
+          method: post
+
+
+
