@@ -30,15 +30,11 @@ def get_route(full_command, routes):
     clean_command = " ".join([word.lower() for word in full_command.split()[1:]])
     # brute force method, look through routes in order of # of words desc.
     sortedroutes = sorted(filtered_routes, key=word_count, reverse=True)
-    print(f"**** starting route command={clean_command}")
-    print(sortedroutes)
     for r in sortedroutes:
         route_verb = r["verb"]
-        print(f"verb={route_verb},clean_command={clean_command}")
         # add a space to both sides to black partial matches
         if (clean_command + " ").startswith(route_verb + " ") or route_verb == "*":
             return r
-    print("**** end route")
     # if there is no match return none
     return None
 
