@@ -45,28 +45,17 @@ def functionnamesdontmatter(cmd: slashbot.SlashCommand):
     return f"Hello {cmd.user_name}"
 
 
-@slashbot.route("goodbye")
-def functionnamesstilldontmatter(cmd: slashbot.SlashCommand):
-    return f"Goodbye {cmd.user_name}"
-
-
 # Support for multi word verbs
 @slashbot.route("good bye")
 def good_bye(cmd: slashbot.SlashCommand):
     return f"Good bye {cmd.user_name}"
 
 
-# Support for multi word verbs
-@slashbot.route("good day")
-def functionnamesdontmatter(cmd: slashbot.SlashCommand):
-    return f"Good day {cmd.user_name}"
-
-
 # An ack is automatically sent to Slack within the required 3 seconds.
 # So your function can take up to the duration of a lambda function (15 mins) 
 @slashbot.route("echo")
 def echowithdelay(cmd):
-    time.sleep(60)
+    time.sleep(300)
     return f"Echo {' '.join(cmd.command_args)}"
 
 
@@ -82,6 +71,7 @@ def handler(event, context):
     return slashbot.main(event, context)
 
 ```
+<img src="images/convo.png" width=400>
 
 
 ## Todo
